@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --accent-gold: #d4af37;
+  --accent-gold-hover: #f0c847;
+  --text-primary: #f8f6f0;
+  --text-secondary: #a09e96;
+  --border-subtle: rgba(248, 246, 240, 0.1);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0a0a0a;
+}
+
+body {
+  margin: 0;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #0a0a0a;
+  color: #f8f6f0;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.font-serif-display {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.font-sans-modern {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+::selection {
+  background-color: #d4af37;
+  color: #0a0a0a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Swiper overrides for hero */
+.hero-swiper,
+.hero-swiper .swiper-slide {
+  height: 100% !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba(248, 246, 240, 0.4) !important;
+  opacity: 1 !important;
+  width: 28px !important;
+  height: 2px !important;
+  border-radius: 0 !important;
+  transition: all 0.4s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #d4af37 !important;
+  width: 56px !important;
+}
+
+/* Ken Burns effect for hero */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
+
+.ken-burns-img {
+  animation: kenBurns 8s ease-out forwards;
+}
+
+/* Marquee for accent text */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 38s linear infinite;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+    border-left-style: inherit;
+    border-right-style: inherit;
+    border-top-style: inherit;
+    border-bottom-style: inherit;
+    border-left-color: inherit;
+    border-right-color: inherit;
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+  }
+}
